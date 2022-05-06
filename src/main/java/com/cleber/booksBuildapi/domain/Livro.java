@@ -1,13 +1,26 @@
 package com.cleber.booksBuildapi.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Livro {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
+public class Livro implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+			
 	private int id;
 	private String nome_autor;
 	private String titulo;
 	private String texto;
+	
+	private Categoria categoria;
 	
 	public Livro(int id, String nome_autor, String titulo, String texto) {
 		super();
@@ -17,11 +30,23 @@ public class Livro {
 		this.texto = texto;
 	}
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	public String getNome_autor() {
 		return nome_autor;
@@ -42,6 +67,7 @@ public class Livro {
 		this.texto = texto;
 	}
 
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -58,5 +84,6 @@ public class Livro {
 		Livro other = (Livro) obj;
 		return id == other.id;
 	}
+
 
 }
