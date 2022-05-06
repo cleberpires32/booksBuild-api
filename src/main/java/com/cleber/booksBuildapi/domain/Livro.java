@@ -22,12 +22,13 @@ public class Livro implements Serializable{
 	
 	private Categoria categoria;
 	
-	public Livro(int id, String nome_autor, String titulo, String texto) {
+	public Livro(int id, String nome_autor, String titulo, String texto,Categoria categoria) {
 		super();
 		this.id = id;
 		this.nome_autor = nome_autor;
 		this.titulo = titulo;
 		this.texto = texto;
+		this.categoria = categoria;
 	}
 	
 	@Id
