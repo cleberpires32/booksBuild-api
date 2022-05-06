@@ -1,6 +1,7 @@
 package com.cleber.booksBuildapi.domain;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -10,8 +11,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "categoria")
 public class Categoria implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -80,8 +83,9 @@ public class Categoria implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Categoria other = (Categoria) obj;
-		return id == other.id;
+		return Objects.equals(id, other.id);
 	}
+
 
 
 

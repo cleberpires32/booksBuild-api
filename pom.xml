@@ -36,6 +36,12 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<!-- conector drive mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<!-- Criação de banco H2 para desenvolvimento em testes -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -50,6 +56,21 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<!-- Migracoes - flyway -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		
+		<!-- Logger 4j -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
 		</dependency>
 	</dependencies>
 

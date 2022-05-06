@@ -1,6 +1,7 @@
 package com.cleber.booksBuildapi.domain;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -9,22 +10,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "livro")
 public class Livro implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 			
-	private int id;
+	private Long id;
 	private String nome_autor;
 	private String titulo;
 	private String texto;
 	
 	private Categoria categoria;
 	
-	public Livro(int id, String nome_autor, String titulo, String texto,Categoria categoria) {
+	public Livro(String nome_autor, String titulo, String texto,Categoria categoria) {
 		super();
-		this.id = id;
 		this.nome_autor = nome_autor;
 		this.titulo = titulo;
 		this.texto = texto;
@@ -33,10 +35,10 @@ public class Livro implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
