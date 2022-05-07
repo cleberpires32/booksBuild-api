@@ -1,7 +1,6 @@
 package com.cleber.booksBuildapi.domain;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "categoria")
@@ -26,10 +27,13 @@ public class Categoria implements Serializable{
 	private String nome;
 	private String descricao;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "categoria")
 	private List<Livro> listaLivro = new ArrayList<Livro>();
 	
-
+	public Categoria() {
+	}
+	
 	public Categoria(int id, String nome, String descricao) {
 		super();
 		this.id = id;
