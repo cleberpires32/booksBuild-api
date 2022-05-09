@@ -11,13 +11,13 @@ import org.springframework.context.annotation.Profile;
 public class DevConfig {
 
 	//@Value("${spring.jpa.hibernate.ddl-auto}")
-	private String strategy;
+	//private String strategy;
 	
 	@Bean
 	public boolean instanciaBD() {
 		//if(strategy.equals("create")) {
 			Logger logger = Logger.getLogger("br.com.MinhaClasse");
-			logger.info("Criação de banco via SQL strategy DEV:'${strategy}'");
+			logger.info("Levantando banco MySql para aplicação do booksbuild em DEV}'");
 			
 		return true;
 		//}else {

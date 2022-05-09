@@ -3,6 +3,9 @@ package com.cleber.booksBuildapi.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +20,7 @@ public class CategoriaService {
 	
 	public Categoria findById(int id){
 		Optional<Categoria> optio = categoriaRepository.findById(id);
-		return optio.orElse(null);
+		return optio.orElseThrow( () -> new ObjectNotFoundException(Categoria.class.getName(), "Objeto com id: "+id+" não encontrado"));
 	}
 
 	public List<Categoria> listaTodas() {
