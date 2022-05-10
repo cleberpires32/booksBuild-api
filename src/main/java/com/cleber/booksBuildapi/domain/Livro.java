@@ -13,12 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "livro")
 public class Livro implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 			
-	private Long id;
+	private Integer id;
 	private String nome_autor;
 	private String titulo;
 	private String texto;
@@ -37,10 +36,10 @@ public class Livro implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
