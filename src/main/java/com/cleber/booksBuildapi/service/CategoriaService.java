@@ -7,6 +7,7 @@ import javax.persistence.EntityNotFoundException;
 
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +44,11 @@ public class CategoriaService {
 	}
 
 	public void delete(Integer id) {
-		categoriaRepository.deleteById(id);
+		try {
+			categoriaRepository.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new com.cleber.booksBuildapi.service.exceptions.DataIntegrityViolationException("A Categoria não poder deletada! Possui livros assossiados");
+		}
 	}
 
 }
