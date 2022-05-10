@@ -34,4 +34,12 @@ public class CategoriaService {
 		//cat.setId(null);
 		return categoriaRepository.save(cat);
 	}
+
+	public Categoria alterar(Integer id, CategoriaDTO dto) {
+		Categoria cat = categoriaRepository.getById(id);
+		cat.setDescricao(dto.getDescricao());
+		cat.setNome(dto.getNome());
+		return categoriaRepository.save(cat);
+	}
+
 }
