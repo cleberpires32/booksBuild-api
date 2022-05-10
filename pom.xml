@@ -57,12 +57,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
-		<!-- Migracoes - flyway -->
+		<!-- Migracoes - flyway 
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
-		
+		-->
 		<!-- Logger 4j -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

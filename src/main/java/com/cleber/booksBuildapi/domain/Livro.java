@@ -25,6 +25,8 @@ public class Livro implements Serializable{
 	
 	private Categoria categoria;
 	
+	public Livro() {}
+	
 	public Livro(String nome_autor, String titulo, String texto,Categoria categoria) {
 		super();
 		this.nome_autor = nome_autor;
