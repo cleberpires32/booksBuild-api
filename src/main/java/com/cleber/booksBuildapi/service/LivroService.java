@@ -44,4 +44,9 @@ public class LivroService {
 		return new LivroDTO(livro);
 	}
 
+	public void delete(Integer id) {
+		buscarPorId(id);
+		livroRepository.deleteById(id);
+	}
+
 }
