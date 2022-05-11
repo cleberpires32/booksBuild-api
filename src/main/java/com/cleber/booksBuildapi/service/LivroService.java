@@ -49,4 +49,8 @@ public class LivroService {
 		livroRepository.deleteById(id);
 	}
 
+	public Livro criarLivro(Livro body) {
+		return livroRepository.save(body);
+	}
+
 }
