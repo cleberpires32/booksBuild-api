@@ -63,6 +63,7 @@
 			<artifactId>flyway-core</artifactId>
 		</dependency>
 		-->
+		
 		<!-- Logger 4j -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

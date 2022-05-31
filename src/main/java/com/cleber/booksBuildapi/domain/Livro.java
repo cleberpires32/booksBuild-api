@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -53,7 +54,7 @@ public class Livro implements Serializable{
 	}
 	
 	@ManyToOne
-	@JoinColumn(name = "categoria_id")
+	@JoinColumn(name = "categoria")
 	public Categoria getCategoria() {
 		return categoria;
 	}

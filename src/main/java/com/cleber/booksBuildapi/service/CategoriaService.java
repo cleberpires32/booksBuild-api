@@ -44,6 +44,7 @@ public class CategoriaService {
 	}
 
 	public void delete(Integer id) {
+		findById(id);
 		try {
 			categoriaRepository.deleteById(id);
 		} catch (DataIntegrityViolationException e) {

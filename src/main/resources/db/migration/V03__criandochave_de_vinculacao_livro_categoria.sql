@@ -1,0 +1,1 @@
+alter table `booksbuild`.livro add constraint fk_livro_categoria foreign key (categoria) references `booksbuild`.categoria (id);

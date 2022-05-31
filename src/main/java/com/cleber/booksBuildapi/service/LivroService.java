@@ -9,8 +9,10 @@ import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cleber.booksBuildapi.domain.Categoria;
 import com.cleber.booksBuildapi.domain.Livro;
 import com.cleber.booksBuildapi.dto.LivroDTO;
+import com.cleber.booksBuildapi.repository.CategoriaRepository;
 import com.cleber.booksBuildapi.repository.LivroRepository;
 
 @Service
@@ -18,6 +20,8 @@ public class LivroService {
 
 	@Autowired
 	private LivroRepository livroRepository;
+	@Autowired
+	private CategoriaService categoriaService;
 
 	public List<LivroDTO> todosLivros() {
 		List<Livro> livros = livroRepository.findAll();
@@ -49,8 +53,19 @@ public class LivroService {
 		livroRepository.deleteById(id);
 	}
 
-	public Livro criarLivro(Livro body) {
+	public Livro criarLivro(Livro body, String idCategoria) {
+		Integer idCat =  Integer.parseInt(idCategoria);
+		Categoria categoria = categoriaService.findById(idCat);
+		body.setCategoria(categoria);
 		return livroRepository.save(body);
+	}
+
+	public List<LivroDTO> buscarPorIdCategoria(Integer id_cat) {
+		Categoria categoria = categoriaService.findById(id_cat);
+		List<Livro> livros = livroRepository.findByCategoria(categoria);
+		List<LivroDTO> livroDto = livros.stream().map(obj -> new LivroDTO(obj)).collect(Collectors.toList());
+		
+		return livroDto;
 	}
 
 }
